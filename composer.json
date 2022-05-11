@@ -1,6 +1,21 @@
 {
-	"minimum-stability":"dev",
+    "name": "strukt/math",
+    "description": "Math Operations",
+    "license": "MIT",
+    "authors": [
+
+        {
+            "name": "Samuel Weru",
+            "email": "pitsolu@gmail.com"
+        }
+    ],
 	"require": {
+		"php": ">=7.4",
 		"strukt/event": "dev-master"
-	}
+	},
+    "autoload": {
+
+        "psr-0": { "Strukt\\": "src/"}
+    },
+    "minimum-stability":"dev"
 }

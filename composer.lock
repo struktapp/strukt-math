@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "76aa8f868c1222ade902d2fcb7704737",
+    "content-hash": "ee88fe8a9cb16c3fe0e43eb5abb47f82",
     "packages": [
         {
             "name": "strukt/event",
@@ -56,7 +56,9 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "php": ">=7.4"
+    },
     "platform-dev": [],
     "plugin-api-version": "2.3.0"
 }

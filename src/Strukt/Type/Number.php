@@ -50,6 +50,24 @@ class Number extends \Strukt\Contract\ValueObject{
 		return new Number($this->val + $number);
 	}
 
+	/**
+	* @var int 	  $precision Decimal Digits
+	* @var string $dec_sep	 Decimal Separator
+	* @var string $thou_sep	 Thousands Separator 
+	*/
+	public function format(int $precison = 2,  string $thou_sep = ",", string $dec_sep = "."){
+
+		return number_format($this->val, $precison, $dec_sep, $thou_sep);
+	}
+
+	public function round(int $precison = null){
+
+		if(!is_null($precison))
+			return new Number(round($this->val, $precison));
+
+		return new Number(round($this->val));
+	}
+
 	public function subtract($number){
 
 		$number = Number::objectify($number);

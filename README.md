@@ -13,7 +13,7 @@ $num = $num->times(2);//2200 multiplication
 $num = $num->parts(4);//550 division
 $rem = $num->mod(9);//1 modulus
 $num = $num->raise(2);//302500 power
-list($num1, $num2) = $num->ratio(1,1);//151250, 151250
+list($num1, $num2) = $num->ratio(1,1);//151250,151250
 list($num1, $num2) = $num->ratio(1,3);//75625,226875
 list($num1, $num2, $num3) = $num->ratio(1,1,3);//60500,60500,181500
 $num->gt(302499);//true; greaterthan
@@ -23,6 +23,8 @@ $num->lte(302501);//true lessthanorequals
 $num->negate()->equals(-302500)  
 $num->yield();//return native number
 $num->reset();//0
+Number::create(1000000)->format();//1,000,000.00
+Number::create(20.5111111)->round(2);//20.51
 Number::random(4, 10, 20); //return 4 random numbers between 10 and 20
 Number::create(10.1)->type();//double
 echo $num;//return native number

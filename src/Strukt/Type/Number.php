@@ -2,7 +2,9 @@
 
 namespace Strukt\Type;
 
-class Number extends \Strukt\Contract\ValueObject{
+use Strukt\Contract\ValueObject;
+
+class Number extends ValueObject{
 
 	public function __construct($number = 0){
 
@@ -60,12 +62,12 @@ class Number extends \Strukt\Contract\ValueObject{
 		return number_format($this->val, $precison, $dec_sep, $thou_sep);
 	}
 
-	public function round(int $precison = null){
+	public function round(int $precison = null, int $mode = PHP_ROUND_HALF_UP){
 
 		if(!is_null($precison))
-			return new Number(round($this->val, $precison));
+			return new Number(round($this->val, $precison, $mode));
 
-		return new Number(round($this->val));
+		return new Number(round($this->val, 0, $mode));
 	}
 
 	public function subtract($number){

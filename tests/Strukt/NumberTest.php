@@ -75,4 +75,18 @@ class NumberTest extends PHPUnit\Framework\TestCase{
 		foreach($nums as $num)
 			$this->assertTrue($start->lte($num) && $end->gte($num));
 	}
+
+	public function testFormat(){
+
+		$num = Number::create(1000000)->format();
+
+		$this->assertEquals("1,000,000.00", $num);
+	}
+
+	public function testRound(){
+
+		$num = Number::create(10.5167277)->round(2);
+
+		$this->assertEquals($num->yield(), 10.52);
+	}
 }

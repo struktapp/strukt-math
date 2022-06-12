@@ -25,4 +25,9 @@ class ValueObject{
 
 		return $this->val == $val;
 	}
+
+	public function clone(){
+
+		return clone $this;
+	}
 }

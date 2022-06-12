@@ -30,6 +30,45 @@ Number::create(10.1)->type();//double
 echo $num;//return native number
 ```
 
+## Matrix
+
+```php
+$a = array(
+
+    array(1,2,3),
+    array(4,5,6),
+    array(7,8,9)
+);
+
+$b = array(
+
+    array(11,22,33),
+    array(44,55,66),
+    array(77,88,99)
+);
+
+$aa = Matrix::create($a);
+$bb = Matrix::create($b);
+
+$ans = $aa->multiply($bb);
+echo $ans;
+/** Result
+[330,396,462]
+[726,891,1056]
+[1122,1386,165]
+**/
+
+print_r($ans->yield());
+/** Result
+array(
+
+    array(330,396,462),
+    array(726,891,1056),
+    array(1122,1386,1650)
+)
+*/
+```
+
 ## Monad
 
 ```php
@@ -38,20 +77,20 @@ echo $num;//return native number
 $params = array("c"=>12, "m"=>3, "x"=>2)
 
 $y = Strukt\Monad::create($params)
-    ->next(function($m, $x){
+->next(function($m, $x){
 
-        $mx = $m * $x;
+    $mx = $m * $x;
 
-        return $mx;
-    })
-    ->next(function($mx, $c){
+    return $mx;
+})
+->next(function($mx, $c){
 
-        return $mx + $c;
-    })
-    ->next(function($r){
+    return $mx + $c;
+})
+->next(function($r){
 
-        return $r;
-    });
+    return $r;
+});
 
 echo $y->yield();
 ```

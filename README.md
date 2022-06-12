@@ -47,8 +47,8 @@ $b = array(
     array(77,88,99)
 );
 
-$aa = Matrix::create($a);
-$bb = Matrix::create($b);
+$aa = Strukt\Matrix::create($a);
+$bb = Strukt\Matrix::create($b);
 
 $ans = $aa->multiply($bb);
 echo $ans;
@@ -61,7 +61,6 @@ echo $ans;
 print_r($ans->yield());
 /** Result
 array(
-
     array(330,396,462),
     array(726,891,1056),
     array(1122,1386,1650)

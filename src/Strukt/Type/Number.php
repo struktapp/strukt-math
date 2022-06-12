@@ -9,7 +9,7 @@ class Number extends ValueObject{
 	public function __construct($number = 0){
 
 		if(!is_numeric($number))
-			throw new \Exception(sprintf("Must use numeral, %s given!", gettype($number)));
+			throw new \Exception("Strukt\Type\Number.construct | Expected numeral!");
 			
 		$this->val = $number;
 	}
@@ -19,8 +19,36 @@ class Number extends ValueObject{
 		return new self($number);
 	}
 
-	public function reset(){
+	public function add($number){
 
+		$number = Number::eject($number);
+	
+		return new Number($this->val + $number);
+	}
+
+	public function subtract($number){
+
+		$number = Number::objectify($number);
+
+		$number = $number->negate();
+
+		return $this->add($number);
+	}
+
+	public function round(int $precison = 0, int $mode = PHP_ROUND_HALF_UP){
+
+		$number = round($this->val, $precison, $mode);
+
+		return new Number($number);
+	}
+
+	public function negate(){
+
+		return new Number(-1*$this->val);
+	}
+
+	public function reset(){
+			
 		$this->val = 0;
 	}
 
@@ -45,13 +73,6 @@ class Number extends ValueObject{
 		return $number instanceof Number;
 	}
 
-	public function add($number){
-
-		$number = Number::eject($number);
-	
-		return new Number($this->val + $number);
-	}
-
 	/**
 	* @var int 	  $precision Decimal Digits
 	* @var string $dec_sep	 Decimal Separator
@@ -60,23 +81,6 @@ class Number extends ValueObject{
 	public function format(int $precison = 2,  string $thou_sep = ",", string $dec_sep = "."){
 
 		return number_format($this->val, $precison, $dec_sep, $thou_sep);
-	}
-
-	public function round(int $precison = null, int $mode = PHP_ROUND_HALF_UP){
-
-		if(!is_null($precison))
-			return new Number(round($this->val, $precison, $mode));
-
-		return new Number(round($this->val, 0, $mode));
-	}
-
-	public function subtract($number){
-
-		$number = Number::objectify($number);
-
-		$number = $number->negate();
-
-		return $this->add($number);
 	}
 
 	public function times($number){
@@ -125,11 +129,6 @@ class Number extends ValueObject{
 		return $parts; 
 	}
 
-	public function negate(){
-
-		return new Number(-1*$this->val);
-	}
-
 	public function equals($number){
 
 		$number = Number::eject($number);
@@ -169,7 +168,7 @@ class Number extends ValueObject{
 	public function yield(){
 
 		if(!is_numeric($this->val))
-			new \Strukt\Raise("NaN");
+			throw new \Exception("Strukt\Type\Number.yield | NaN");
 
 		return $this->val;
 	}

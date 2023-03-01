@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f66dae050817ff09f139a5dab519379a",
+    "content-hash": "57067bd175220d0d5aad7f8f1dee64cc",
     "packages": [
         {
             "name": "strukt/event",
-            "version": "v1.0.0-alpha",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samweru/strukt-event.git",
-                "reference": "a564a259bd2bfc7b1009acf9cbf0f7755b920334"
+                "reference": "46ea08afeae9888b1f4512305d4de360c6d9aad0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samweru/strukt-event/zipball/a564a259bd2bfc7b1009acf9cbf0f7755b920334",
-                "reference": "a564a259bd2bfc7b1009acf9cbf0f7755b920334",
+                "url": "https://api.github.com/repos/samweru/strukt-event/zipball/46ea08afeae9888b1f4512305d4de360c6d9aad0",
+                "reference": "46ea08afeae9888b1f4512305d4de360c6d9aad0",
                 "shasum": ""
             },
             "require": {
@@ -42,9 +42,9 @@
             "description": "No event loop included!",
             "support": {
                 "issues": "https://github.com/samweru/strukt-event/issues",
-                "source": "https://github.com/samweru/strukt-event/tree/v1.0.0-alpha"
+                "source": "https://github.com/samweru/strukt-event/tree/v1.0.0"
             },
-            "time": "2022-05-17T11:41:52+00:00"
+            "time": "2023-02-26T19:28:08+00:00"
         }
     ],
     "packages-dev": [],

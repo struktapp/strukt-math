@@ -53,4 +53,26 @@ class Range{
 
 		return $is_upbound && $is_lowbound; 
 	}
+
+	public function random($qty){
+
+		$min = $this->lowlimit;
+		$max = $this->uplimit;
+
+		$i=0;
+		while($i<=$qty-1){
+
+			if(!is_null($min) && !is_null($max))
+				$numbers[] = rand($min, $max);
+			else
+				$numbers[] = rand();
+
+			if($i==$qty)
+				break;
+			
+			$i++;
+		}
+
+		return $numbers;
+	}
 }

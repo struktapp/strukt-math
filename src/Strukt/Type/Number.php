@@ -177,23 +177,4 @@ class Number extends ValueObject{
 
 		return (string) $this->val;
 	}
-
-	public static function random($qty, $min=null, $max=null){
-
-		$i=0;
-		while($i<=$qty-1){
-
-			if(!is_null($min) && !is_null($max))
-				$numbers[] = rand($min, $max);
-			else
-				$numbers[] = rand();
-
-			if($i==$qty)
-				break;
-			
-			$i++;
-		}
-
-		return $numbers;
-	}
 }

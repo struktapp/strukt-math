@@ -3,10 +3,12 @@
 namespace Strukt;
 
 use Strukt\Event;
-use Strukt\Contract\AbstractArr;
+// use Strukt\Contract\AbstractArr;
 // use Strukt\Type\Arr;
 
 class Monad{
+
+	use Helper\Arr;
 
 	private $result;
 	private $params;
@@ -14,7 +16,7 @@ class Monad{
 
 	public function __construct(array $params){
 
-		$this->params_assoc = AbstractArr::isMap($params);
+		$this->params_assoc = $this->isMap($params);
 
 		$this->params = $params;
 	}

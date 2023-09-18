@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "57067bd175220d0d5aad7f8f1dee64cc",
+    "content-hash": "1f9304feb7531f85e5d786c7143c3731",
     "packages": [
         {
             "name": "strukt/event",
-            "version": "v1.0.0",
+            "version": "v1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/samweru/strukt-event.git",
-                "reference": "46ea08afeae9888b1f4512305d4de360c6d9aad0"
+                "reference": "90dcb6668c734d338f606530b9387adfd8014efc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samweru/strukt-event/zipball/46ea08afeae9888b1f4512305d4de360c6d9aad0",
-                "reference": "46ea08afeae9888b1f4512305d4de360c6d9aad0",
+                "url": "https://api.github.com/repos/samweru/strukt-event/zipball/90dcb6668c734d338f606530b9387adfd8014efc",
+                "reference": "90dcb6668c734d338f606530b9387adfd8014efc",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.4"
+                "php": "^8.1"
             },
             "type": "package",
             "autoload": {
@@ -42,9 +42,9 @@
             "description": "No event loop included!",
             "support": {
                 "issues": "https://github.com/samweru/strukt-event/issues",
-                "source": "https://github.com/samweru/strukt-event/tree/v1.0.0"
+                "source": "https://github.com/samweru/strukt-event/tree/v1.1.0"
             },
-            "time": "2023-02-26T19:28:08+00:00"
+            "time": "2023-09-18T11:41:02+00:00"
         }
     ],
     "packages-dev": [],
@@ -54,8 +54,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.4"
+        "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }

@@ -4,9 +4,7 @@ Strukt Math
 ## Number (Value Objects)
 
 ```php
-use Strukt\Type\Number;
-
-$num = new Number(1000);
+$num = number(1000);
 $num = $num->add(200);//1200
 $num = $num->subtract(100);//1100
 $num = $num->times(2);//2200 multiplication
@@ -75,7 +73,7 @@ array(
 
 $params = array("c"=>12, "m"=>3, "x"=>2)
 
-$y = Strukt\Monad::create($params)
+$y = monos($params)
 ->next(function($m, $x){
 
     $mx = $m * $x;

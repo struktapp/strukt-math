@@ -7,24 +7,71 @@
     "content-hash": "1f9304feb7531f85e5d786c7143c3731",
     "packages": [
         {
-            "name": "strukt/event",
-            "version": "v1.1.0",
+            "name": "strukt/base",
+            "version": "v1.0.0-alpha",
             "source": {
                 "type": "git",
-                "url": "https://github.com/samweru/strukt-event.git",
-                "reference": "90dcb6668c734d338f606530b9387adfd8014efc"
+                "url": "https://github.com/samweru/strukt-base.git",
+                "reference": "5592ddfded8f17d5f8adc3fd19249918e9398d78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samweru/strukt-event/zipball/90dcb6668c734d338f606530b9387adfd8014efc",
-                "reference": "90dcb6668c734d338f606530b9387adfd8014efc",
+                "url": "https://api.github.com/repos/samweru/strukt-base/zipball/5592ddfded8f17d5f8adc3fd19249918e9398d78",
+                "reference": "5592ddfded8f17d5f8adc3fd19249918e9398d78",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.1"
             },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-0": {
+                    "Strukt\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Moderator",
+                    "email": "pitsolu@gmail.com"
+                }
+            ],
+            "description": "Base Functionality",
+            "support": {
+                "issues": "https://github.com/samweru/strukt-base/issues",
+                "source": "https://github.com/samweru/strukt-base/tree/v1.0.0-alpha"
+            },
+            "time": "2024-01-25T01:50:53+00:00"
+        },
+        {
+            "name": "strukt/event",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/samweru/strukt-event.git",
+                "reference": "df123fee247059cecc4cdacafabc1a8576bf01f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/samweru/strukt-event/zipball/df123fee247059cecc4cdacafabc1a8576bf01f3",
+                "reference": "df123fee247059cecc4cdacafabc1a8576bf01f3",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.1",
+                "strukt/base": "v1.0.0-alpha"
+            },
             "type": "package",
             "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
                 "psr-0": {
                     "Strukt\\": "src/"
                 }
@@ -44,7 +91,7 @@
                 "issues": "https://github.com/samweru/strukt-event/issues",
                 "source": "https://github.com/samweru/strukt-event/tree/v1.1.0"
             },
-            "time": "2023-09-18T11:41:02+00:00"
+            "time": "2024-01-25T01:59:37+00:00"
         }
     ],
     "packages-dev": [],

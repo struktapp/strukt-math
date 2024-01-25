@@ -5,7 +5,9 @@ use Strukt\Monad;
 use Strukt\Range;
 use Strukt\Counter;
 
-if(!function_exists("number")){
+helper("math");
+
+if(helper_add("number")){
 
 	function number(mixed $number){
 
@@ -13,7 +15,7 @@ if(!function_exists("number")){
 	}
 }
 
-if(!function_exists("monos")){
+if(helper_add("monos")){
 
 	function monos(array $params){
 
@@ -21,7 +23,7 @@ if(!function_exists("monos")){
 	}
 }
 
-if(!function_exists("ranger")){
+if(helper_add("ranger")){
 
 	function ranger($min = 0, $max = null){
 
@@ -29,7 +31,7 @@ if(!function_exists("ranger")){
 	}
 }
 
-if(!function_exists("counter")){
+if(helper_add("counter")){
 
 	function counter(int $start_at = 0, string $name = null){
 
@@ -38,6 +40,9 @@ if(!function_exists("counter")){
 
 		return new Counter($start_at);
 	}
+}
+
+if(helper_add("counters")){
 
 	function counters(string $name){
 

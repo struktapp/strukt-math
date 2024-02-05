@@ -54,7 +54,7 @@ class Range{
 		return $is_upbound && $is_lowbound; 
 	}
 
-	public function random($qty){
+	public function random(int $qty = 1){
 
 		$min = $this->lowlimit;
 		$max = $this->uplimit;

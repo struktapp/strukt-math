@@ -54,6 +54,18 @@ class Matrix{
 		return $this->arr;
 	}
 
+	public static function random(string $dimensions = "3x3", int $sequence = 10){
+
+		if(!preg_match("/[0-9]+x[0-9]+/", $dimensions))
+			throw new \Exception("Invalid matrix dimensions!");
+
+		list($len, $wid) = explode("x", strtolower($dimensions));
+
+		$result = array_map(fn()=>ranger(1, $sequence)->random($len), range(1, $wid));
+
+		return \Strukt\Matrix::create($result);
+	}
+
 	public function __toString(){
 
 		return implode("\n", array_map(function($y){

@@ -49,3 +49,45 @@ if(helper_add("counters")){
 		return Counter::get($name);
 	}
 }
+
+if(helper_add("matrix")){
+
+	function matrix(array $base = null){
+
+		return new class($base){
+
+			private $base = null;
+
+			public function __construct(array $base = null){
+
+				if(!is_null($base))
+					$this->base = Strukt\Matrix::create($base);
+			}
+
+			public function multiply(array $multiplier){
+
+				$multiplier = Strukt\Matrix::create($multiplier);
+
+				if(!is_null($this->base))
+					return $this->base->multiply($multiplier);
+
+				return null;
+			}
+
+			public function random(string $dimensions = "3x3", int $sequence = 10){
+
+				return Strukt\Matrix::random($dimensions, $sequence);
+			}
+
+			public function transpose(){
+
+				return $this->base->transpose();
+			}
+
+			public function yield(){
+
+				return $this->base;
+			}
+		};
+	}
+}

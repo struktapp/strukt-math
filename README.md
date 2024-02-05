@@ -31,6 +31,7 @@ echo $num;//return native number
 ## Matrix
 
 ```php
+// $a = array(array(1,2,3),array(4,5,6),array(7,8,9));
 $a = array(
 
     array(1,2,3),
@@ -38,6 +39,7 @@ $a = array(
     array(7,8,9)
 );
 
+// $b = array(array(11,22,33),array(44,55,66),array(77,88,99));
 $b = array(
 
     array(11,22,33),
@@ -45,18 +47,15 @@ $b = array(
     array(77,88,99)
 );
 
-$aa = Strukt\Matrix::create($a);
-$bb = Strukt\Matrix::create($b);
 
-$ans = $aa->multiply($bb);
-echo $ans;
+$c = (string)matrix($a)->multiply($b);
 /** Result
 [330,396,462]
 [726,891,1056]
 [1122,1386,165]
 **/
 
-print_r($ans->yield());
+$c = matrix($a)->multiply($b)->yield();
 /** Result
 array(
     array(330,396,462),
@@ -73,21 +72,7 @@ array(
 
 $params = array("c"=>12, "m"=>3, "x"=>2)
 
-$y = monos($params)
-->next(function($m, $x){
-
-    $mx = $m * $x;
-
-    return $mx;
-})
-->next(function($mx, $c){
-
-    return $mx + $c;
-})
-->next(function($r){
-
-    return $r;
-});
+$y = monos($params)->next(fn($m, $x)=>$m * $x)->next(fn($mx, $c)=>$mx + $c)->next(fn($r)=>$r);
 
 echo $y->yield();
 ```

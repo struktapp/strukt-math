@@ -4,6 +4,8 @@ use Strukt\Type\Number;
 
 class NumberTest extends PHPUnit\Framework\TestCase{
 
+	private $num;
+
 	public function setUp():void{
 
 		$this->num = new Number(1000);

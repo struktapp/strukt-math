@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "strukt/base",
-            "version": "v1.0.0-alpha",
+            "version": "v1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/samweru/strukt-base.git",
-                "reference": "5592ddfded8f17d5f8adc3fd19249918e9398d78"
+                "url": "https://github.com/struktapp/strukt-base.git",
+                "reference": "9bf9fede97c9a5237e5cbee7979915ad85a70138"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samweru/strukt-base/zipball/5592ddfded8f17d5f8adc3fd19249918e9398d78",
-                "reference": "5592ddfded8f17d5f8adc3fd19249918e9398d78",
+                "url": "https://api.github.com/repos/struktapp/strukt-base/zipball/9bf9fede97c9a5237e5cbee7979915ad85a70138",
+                "reference": "9bf9fede97c9a5237e5cbee7979915ad85a70138",
                 "shasum": ""
             },
             "require": {
@@ -44,28 +44,28 @@
             ],
             "description": "Base Functionality",
             "support": {
-                "issues": "https://github.com/samweru/strukt-base/issues",
-                "source": "https://github.com/samweru/strukt-base/tree/v1.0.0-alpha"
+                "issues": "https://github.com/struktapp/strukt-base/issues",
+                "source": "https://github.com/struktapp/strukt-base/tree/v1.0.0"
             },
-            "time": "2024-01-25T01:50:53+00:00"
+            "time": "2025-03-20T18:38:58+00:00"
         },
         {
             "name": "strukt/event",
             "version": "v1.1.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/samweru/strukt-event.git",
-                "reference": "df123fee247059cecc4cdacafabc1a8576bf01f3"
+                "url": "https://github.com/struktapp/strukt-event.git",
+                "reference": "e0217d9a50f7ee276edc447bf4b35d3eac0084df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/samweru/strukt-event/zipball/df123fee247059cecc4cdacafabc1a8576bf01f3",
-                "reference": "df123fee247059cecc4cdacafabc1a8576bf01f3",
+                "url": "https://api.github.com/repos/struktapp/strukt-event/zipball/e0217d9a50f7ee276edc447bf4b35d3eac0084df",
+                "reference": "e0217d9a50f7ee276edc447bf4b35d3eac0084df",
                 "shasum": ""
             },
             "require": {
                 "php": "^8.1",
-                "strukt/base": "v1.0.0-alpha"
+                "strukt/base": "v1.0.0"
             },
             "type": "package",
             "autoload": {
@@ -88,21 +88,21 @@
             ],
             "description": "No event loop included!",
             "support": {
-                "issues": "https://github.com/samweru/strukt-event/issues",
-                "source": "https://github.com/samweru/strukt-event/tree/v1.1.0"
+                "issues": "https://github.com/struktapp/strukt-event/issues",
+                "source": "https://github.com/struktapp/strukt-event/tree/v1.1.0"
             },
-            "time": "2024-01-25T01:59:37+00:00"
+            "time": "2025-03-20T16:03:01+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.1"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

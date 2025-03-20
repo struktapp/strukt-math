@@ -3,17 +3,21 @@
 namespace Strukt;
 
 use Strukt\Event;
-// use Strukt\Contract\AbstractArr;
-// use Strukt\Type\Arr;
 
+/**
+ * @author Moderator <pitsolu@gmail.com>
+ */
 class Monad{
 
-	use Helper\Arr;
+	use Traits\Arr;
 
 	private $result;
 	private $params;
 	private $params_assoc;
 
+	/**
+	 * @param array $params
+	 */
 	public function __construct(array $params){
 
 		$this->params_assoc = $this->isMap($params);
@@ -21,12 +25,20 @@ class Monad{
 		$this->params = $params;
 	}
 
-	public static function create(array $params){
+	/**
+	 * @param array $params
+	 */
+	public static function create(array $params):Monad{
 
 		return new self($params);
 	}
 
-	private function withAssocParams(\Closure $step){
+	/**
+	 * @param \Closure $step
+	 * 
+	 * @return void
+	 */
+	private function withAssocParams(\Closure $step):void{
 
 		$evt = Event::create($step);
 
@@ -42,7 +54,12 @@ class Monad{
 		$this->result = $evt->applyArgs($this->params)->exec();
 	}
 
-	private function withNoAssocParams(\Closure $step){
+	/**
+	 * @param \Closure $step
+	 * 
+	 * @return void
+	 */
+	private function withNoAssocParams(\Closure $step):void{
 
 		$evt = Event::create($step);
 
@@ -55,7 +72,12 @@ class Monad{
 		array_unshift($this->params, $this->result);		
 	}
 
-	public function next(\Closure $step){
+	/**
+	 * @param \Closure $step
+	 * 
+	 * @return Monad
+	 */
+	public function next(\Closure $step):Monad{
 
 		if($this->params_assoc)
 			$this->withAssocParams($step);
@@ -65,7 +87,10 @@ class Monad{
 		return $this;
 	}
 
-	public function yield(){
+	/**
+	 * @return mixed
+	 */
+	public function yield():mixed{
 
 		return $this->result;
 	}

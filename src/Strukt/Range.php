@@ -4,12 +4,19 @@ namespace Strukt;
 
 use Strukt\Type\Number;
 
+/** 
+ * @author Moderator <pitsolu@gmail.com>
+ */
 class Range{
 
 	private $lowlimit;
 	private $uplimit;
 
-	public function __construct($lowlimit = 0, $uplimit = null){
+	/**
+	 * @param integer $lowlimit
+	 * @param integer $uplimit
+	 */
+	public function __construct(int $lowlimit = 0, ?int $uplimit = null){
 
 		if(!is_null($lowlimit))
 			if(!is_numeric($lowlimit))
@@ -23,7 +30,13 @@ class Range{
 		$this->uplimit = $uplimit;
 	}
 
-	public static function create($lowlimit = 0, $uplimit = null){
+	/**
+	 * @param integer $lowlimit
+	 * @param integer $uplimit
+	 * 
+	 * @return Range
+	 */
+	public static function create(int $lowlimit = 0, ?int $uplimit = null):Range{
 
 		return new self($lowlimit, $uplimit);
 	}
@@ -32,8 +45,12 @@ class Range{
 	* Check if number is within limits
 	* 
 	* Should only apply to Strukt\Number[create, add, subtract, negate, reset, round] methods only
+	* 
+	* @param Number|int $number
+	* 
+	* @return bool
 	*/
-	public function valid($number){
+	public function valid(Number|int $number):bool{
 
 		if(!$number instanceof Number){
 
@@ -54,7 +71,12 @@ class Range{
 		return $is_upbound && $is_lowbound; 
 	}
 
-	public function random(int $qty = 1){
+	/**
+	 * @param integer $qty 
+	 * 
+	 * @return array
+	 */
+	public function random(int $qty = 1):array{
 
 		$min = $this->lowlimit;
 		$max = $this->uplimit;

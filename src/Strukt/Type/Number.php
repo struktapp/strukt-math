@@ -4,9 +4,19 @@ namespace Strukt\Type;
 
 use Strukt\Contract\ValueObject;
 
+/**
+ * Number value object
+ * 
+ * @author Moderator <pitsolu@gmail.com>
+ */
 class Number extends ValueObject{
 
-	public function __construct($number = 0){
+	protected $val;
+
+	/**
+	 * @param int|float $number
+	 */
+	public function __construct(int|float $number = 0){
 
 		if(!is_numeric($number))
 			throw new \Exception("Strukt\Type\Number.construct | Expected numeral!");
@@ -14,19 +24,35 @@ class Number extends ValueObject{
 		$this->val = $number;
 	}
 
-	public static function create($number = 0){
+	/**
+	 * @param int|float $number
+	 * 
+	 * @return Number
+	 */
+	#[\Override]
+	public static function create($number = 0):Number{
 
 		return new self($number);
 	}
 
-	public function add($number){
+	/**
+	 * @param Number|int|float $number
+	 * 
+	 * @return Number
+	 */
+	public function add(Number|int|float $number):Number{
 
 		$number = Number::eject($number);
 	
 		return new Number($this->val + $number);
 	}
 
-	public function subtract($number){
+	/**
+	 * @param Number|int|float $number
+	 * 
+	 * @return Number
+	 */
+	public function subtract(Number|int|float $number):Number{
 
 		$number = Number::objectify($number);
 
@@ -35,24 +61,45 @@ class Number extends ValueObject{
 		return $this->add($number);
 	}
 
-	public function round(int $precison = 0, int $mode = PHP_ROUND_HALF_UP){
+	/**
+	 * @param integer $precision
+	 * @param integer $mode 
+	 * 		default: PHP_ROUND_HALF_UP - eg. 1.5 -> 2 | -1.5 -> -2
+	 * 		PHP_ROUND_HALF_DOWN - eg. 1.5 -> 1 | -1.5 -> -1
+	 * 		PHP_ROUND_HALF_EVEN - eg. 1.5 & 2.5 -> 2
+	 * 		PHP_ROUND_HALF_ODD eg. 1.5 -> 1 & 2.5 -> 2
+	 * 
+	 * @return Number
+	 */
+	public function round(int $precision = 0, int $mode = PHP_ROUND_HALF_UP):Number{
 
-		$number = round($this->val, $precison, $mode);
+		$number = round($this->val, $precision, $mode);
 
 		return new Number($number);
 	}
 
-	public function negate(){
+	/**
+	 * @return Number
+	 */
+	public function negate():Number{
 
 		return new Number(-1*$this->val);
 	}
 
-	public function reset(){
+	/**
+	 * @return void
+	 */
+	public function reset():void{
 			
 		$this->val = 0;
 	}
 
-	private static function objectify($number){
+	/**
+	 * @param Number|int|float $number
+	 * 
+	 * @return Number
+	 */
+	private static function objectify(Number|int|float $number):Number{
 
 		if(!Number::valid($number))
 			$number = new Number($number);
@@ -60,7 +107,12 @@ class Number extends ValueObject{
 		return $number;
 	}
 
-	private static function eject($number){
+	/**
+	 * @param Number|int|float $number
+	 * 
+	 * @return Number
+	 */
+	private static function eject(Number|int|float $number):Number|int|float{
 
 		if(Number::valid($number))
 			$number = $number->yield();
@@ -68,50 +120,82 @@ class Number extends ValueObject{
 		return $number;
 	}
 
-	private static function valid($number){
+	/**
+	 * @param Number|int|float $number
+	 * 
+	 * @return bool
+	 */
+	private static function valid(Number|int|float $number):bool{
 
 		return $number instanceof Number;
 	}
 
 	/**
-	* @var int 	  $precision Decimal Digits
-	* @var string $dec_sep	 Decimal Separator
-	* @var string $thou_sep	 Thousands Separator 
+	* @param int $precision 	 Decimal Digits
+	* @param string $dec_sep	 Decimal Separator
+	* @param string $thou_sep	 Thousands Separator 
+	* 
+	* @return string
 	*/
-	public function format(int $precison = 2,  string $thou_sep = ",", string $dec_sep = "."){
+	public function format(int $precision = 2,  string $thou_sep = ",", string $dec_sep = "."):string{
 
-		return number_format($this->val, $precison, $dec_sep, $thou_sep);
+		return number_format($this->val, $precision, $dec_sep, $thou_sep);
 	}
 
-	public function times($number){
+	/**
+	 * @param Number|int|float $number
+	 * 
+	 * @return Number
+	 */
+	public function times(Number|int|float $number):Number{
 
 		$number = Number::eject($number);
 
 		return new Number($number*$this->val);
 	}
 
-	public function parts($number){
+	/**
+	 * @param Number|int|float $number
+	 * 
+	 * @return Number
+	 */
+	public function parts(Number|int|float $number):Number{
 
 		$number = Number::eject($number);
 
 		return new Number($this->val/$number);
 	}
 
-	public function mod($number){
+	/**
+	 * @param Number|int|float $number
+	 * 
+	 * @return Number
+	 */
+	public function mod(Number|int|float $number):Number{
 
 		$number = Number::eject($number);
 
 		return new Number($this->val%$number);
 	}
 
-	public function raise($number){
+	/**
+	 * @param Number|int|float $number
+	 * 
+	 * @return Number
+	 */
+	public function raise(Number|int|float $number):Number{
 
 		$number = Number::eject($number);
 
 		return new Number(pow($this->val, $number));
 	}
 
-	public function ratio(){
+	/**
+	 * @param .....
+	 * 
+	 * @return array
+	 */
+	public function ratio():array{
 
 		$dividend = array_sum(func_get_args());
 
@@ -129,43 +213,78 @@ class Number extends ValueObject{
 		return $parts; 
 	}
 
-	public function equals($number){
+	/**
+	 * @param Number|int|float $number
+	 * 
+	 * @return bool
+	 */
+	#[\Override]
+	public function equals($number):bool{
 
 		$number = Number::eject($number);
 
 		return $this->val == $number;
 	}
 
-	public function gt($number){
+	/**
+	 * @param Number|int|float $number
+	 * 
+	 * @return bool
+	 */
+	public function gt(Number|int|float $number):bool{
 
 		$number = Number::eject($number);
 
 		return $this->val > $number;
 	}
 
-	public function lt($number){
+	/**
+	 * @param Number|int|float $number
+	 * 
+	 * @return bool
+	 */
+	public function lt(Number|int|float $number):bool{
 
 		$number = Number::eject($number);
 
 		return $this->val < $number;
 	}
 
-	public function lte($number){
+	/**
+	 * @param Number|int|float $number
+	 * 
+	 * @return bool
+	 */
+	public function lte(Number|int|float $number):bool{
 
 		return $this->lt($number) || $this->equals($number);
 	}
 
-	public function gte($number){
+	/**
+	 * @param Number|int|float $number
+	 * 
+	 * @return bool
+	 */
+	public function gte(Number|int|float $number):bool{
 
 		return $this->gt($number) || $this->equals($number);
 	}
 
-	public function type(){
+	/**
+	 * Internal gettype for \Strukt\Type\Number class
+	 * 
+	 * @return string
+	 */
+	public function type():string{
 
 		return gettype($this->val);
 	}
 
-	public function yield(){
+	/**
+	 * @return int|float
+	 */
+	#[\Override]
+	public function yield():int|float{
 
 		if(!is_numeric($this->val))
 			throw new \Exception("Strukt\Type\Number.yield | NaN");

@@ -2,21 +2,35 @@
 
 namespace Strukt;
 
+/**
+ * @author Moderator <pitsolu@gmail.com>
+ */
 class Matrix{
 
 	private $arr;
 
+	/**
+	 * @param array $arr
+	 */
 	public function __construct(array $arr){
 
 		$this->arr = $arr;
 	}
 
-	public static function create(array $arr){
+	/**
+	 * @param array $arr
+	 * 
+	 * @return Matrix
+	 */
+	public static function create(array $arr):Matrix{
 
 		return new self($arr);
 	}
 
-	public function transpose(){
+	/**
+	 * @return Matrix
+	 */
+	public function transpose():Matrix{
 
 		$b = $this->arr;
 
@@ -27,7 +41,12 @@ class Matrix{
 		}, array_keys($b)));
 	}
 
-	public function multiply(Matrix $b){
+	/**
+	 * @param Matrix $b
+	 * 
+	 * @return Matrix
+	 */
+	public function multiply(Matrix $b):Matrix{
 
 		if(count(reset($this->arr))!=count(array_column($b->yield(), 0)))
 			throw new \Exception("Matrices dimensions incompatible!");
@@ -49,12 +68,21 @@ class Matrix{
 		}, $this->arr));
 	}
 
-	public function yield(){
+	/**
+	 * @return array
+	 */
+	public function yield():array{
 
 		return $this->arr;
 	}
 
-	public static function random(string $dimensions = "3x3", int $sequence = 10){
+	/**
+	 * @param string $dimensions
+	 * @param integer $sequence
+	 * 
+	 * @return Matrix
+	 */
+	public static function random(string $dimensions = "3x3", int $sequence = 10):Matrix{
 
 		if(!preg_match("/[0-9]+x[0-9]+/", $dimensions))
 			throw new \Exception("Invalid matrix dimensions!");

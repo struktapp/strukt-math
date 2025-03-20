@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/struktapp/strukt-base.git",
-                "reference": "9bf9fede97c9a5237e5cbee7979915ad85a70138"
+                "reference": "de329d2b9a9c049e6941a86793aa37c200619534"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/struktapp/strukt-base/zipball/9bf9fede97c9a5237e5cbee7979915ad85a70138",
-                "reference": "9bf9fede97c9a5237e5cbee7979915ad85a70138",
+                "url": "https://api.github.com/repos/struktapp/strukt-base/zipball/de329d2b9a9c049e6941a86793aa37c200619534",
+                "reference": "de329d2b9a9c049e6941a86793aa37c200619534",
                 "shasum": ""
             },
             "require": {
@@ -47,7 +47,7 @@
                 "issues": "https://github.com/struktapp/strukt-base/issues",
                 "source": "https://github.com/struktapp/strukt-base/tree/v1.0.0"
             },
-            "time": "2025-03-20T18:38:58+00:00"
+            "time": "2025-03-20T20:37:38+00:00"
         },
         {
             "name": "strukt/event",
@@ -55,12 +55,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/struktapp/strukt-event.git",
-                "reference": "e0217d9a50f7ee276edc447bf4b35d3eac0084df"
+                "reference": "76c55a99d0cfcb8f10fdbd17ceb2027f6bb5bff0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/struktapp/strukt-event/zipball/e0217d9a50f7ee276edc447bf4b35d3eac0084df",
-                "reference": "e0217d9a50f7ee276edc447bf4b35d3eac0084df",
+                "url": "https://api.github.com/repos/struktapp/strukt-event/zipball/76c55a99d0cfcb8f10fdbd17ceb2027f6bb5bff0",
+                "reference": "76c55a99d0cfcb8f10fdbd17ceb2027f6bb5bff0",
                 "shasum": ""
             },
             "require": {
@@ -91,7 +91,7 @@
                 "issues": "https://github.com/struktapp/strukt-event/issues",
                 "source": "https://github.com/struktapp/strukt-event/tree/v1.1.0"
             },
-            "time": "2025-03-20T16:03:01+00:00"
+            "time": "2025-03-20T20:51:39+00:00"
         }
     ],
     "packages-dev": [],

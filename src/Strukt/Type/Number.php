@@ -27,10 +27,10 @@ class Number extends ValueObject{
 	/**
 	 * @param int|float $number
 	 * 
-	 * @return Number
+	 * @return static
 	 */
 	#[\Override]
-	public static function create($number = 0):Number{
+	public static function create($number = 0):static{
 
 		return new self($number);
 	}
@@ -38,9 +38,9 @@ class Number extends ValueObject{
 	/**
 	 * @param Number|int|float $number
 	 * 
-	 * @return Number
+	 * @return static
 	 */
-	public function add(Number|int|float $number):Number{
+	public function add(Number|int|float $number):static{
 
 		$number = Number::eject($number);
 	
@@ -50,9 +50,9 @@ class Number extends ValueObject{
 	/**
 	 * @param Number|int|float $number
 	 * 
-	 * @return Number
+	 * @return static
 	 */
-	public function subtract(Number|int|float $number):Number{
+	public function subtract(Number|int|float $number):static{
 
 		$number = Number::objectify($number);
 
@@ -69,9 +69,9 @@ class Number extends ValueObject{
 	 * 		PHP_ROUND_HALF_EVEN - eg. 1.5 & 2.5 -> 2
 	 * 		PHP_ROUND_HALF_ODD eg. 1.5 -> 1 & 2.5 -> 2
 	 * 
-	 * @return Number
+	 * @return static
 	 */
-	public function round(int $precision = 0, int $mode = PHP_ROUND_HALF_UP):Number{
+	public function round(int $precision = 0, int $mode = PHP_ROUND_HALF_UP):static{
 
 		$number = round($this->val, $precision, $mode);
 
@@ -79,9 +79,9 @@ class Number extends ValueObject{
 	}
 
 	/**
-	 * @return Number
+	 * @return static
 	 */
-	public function negate():Number{
+	public function negate():static{
 
 		return new Number(-1*$this->val);
 	}
@@ -97,9 +97,9 @@ class Number extends ValueObject{
 	/**
 	 * @param Number|int|float $number
 	 * 
-	 * @return Number
+	 * @return static
 	 */
-	private static function objectify(Number|int|float $number):Number{
+	private static function objectify(Number|int|float $number):static{
 
 		if(!Number::valid($number))
 			$number = new Number($number);
@@ -110,9 +110,9 @@ class Number extends ValueObject{
 	/**
 	 * @param Number|int|float $number
 	 * 
-	 * @return Number
+	 * @return static
 	 */
-	private static function eject(Number|int|float $number):Number|int|float{
+	private static function eject(Number|int|float $number):static|int|float{
 
 		if(Number::valid($number))
 			$number = $number->yield();
@@ -145,9 +145,9 @@ class Number extends ValueObject{
 	/**
 	 * @param Number|int|float $number
 	 * 
-	 * @return Number
+	 * @return static
 	 */
-	public function times(Number|int|float $number):Number{
+	public function times(Number|int|float $number):static{
 
 		$number = Number::eject($number);
 
@@ -157,9 +157,9 @@ class Number extends ValueObject{
 	/**
 	 * @param Number|int|float $number
 	 * 
-	 * @return Number
+	 * @return static
 	 */
-	public function parts(Number|int|float $number):Number{
+	public function parts(Number|int|float $number):static{
 
 		$number = Number::eject($number);
 
@@ -169,9 +169,9 @@ class Number extends ValueObject{
 	/**
 	 * @param Number|int|float $number
 	 * 
-	 * @return Number
+	 * @return static
 	 */
-	public function mod(Number|int|float $number):Number{
+	public function mod(Number|int|float $number):static{
 
 		$number = Number::eject($number);
 
@@ -181,9 +181,9 @@ class Number extends ValueObject{
 	/**
 	 * @param Number|int|float $number
 	 * 
-	 * @return Number
+	 * @return static
 	 */
-	public function raise(Number|int|float $number):Number{
+	public function raise(Number|int|float $number):static{
 
 		$number = Number::eject($number);
 

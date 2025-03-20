@@ -22,9 +22,9 @@ class Counter{
 	 * @param string $name
 	 * @param integer $counter
 	 * 
-	 * @return Counter
+	 * @return static
 	 */
-	public static function create(string $name, int $counter = 0):Counter{
+	public static function create(string $name, int $counter = 0):static{
 
 		if(array_key_exists($name, static::$counters))
 			throw new \Exception(sprintf("Counter[%s] already exists!", $name));
@@ -38,9 +38,9 @@ class Counter{
 	/**
 	 * @param string $name
 	 * 
-	 * @return Counter
+	 * @return static
 	 */
-	public static function get(string $name):Counter{
+	public static function get(string $name):static{
 
 		return static::$counters[$name];		
 	}

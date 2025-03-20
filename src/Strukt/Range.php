@@ -34,9 +34,9 @@ class Range{
 	 * @param integer $lowlimit
 	 * @param integer $uplimit
 	 * 
-	 * @return Range
+	 * @return static
 	 */
-	public static function create(int $lowlimit = 0, ?int $uplimit = null):Range{
+	public static function create(int $lowlimit = 0, ?int $uplimit = null):static{
 
 		return new self($lowlimit, $uplimit);
 	}

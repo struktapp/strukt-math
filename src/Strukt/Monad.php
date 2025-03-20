@@ -28,7 +28,7 @@ class Monad{
 	/**
 	 * @param array $params
 	 */
-	public static function create(array $params):Monad{
+	public static function create(array $params):static{
 
 		return new self($params);
 	}
@@ -75,9 +75,9 @@ class Monad{
 	/**
 	 * @param \Closure $step
 	 * 
-	 * @return Monad
+	 * @return static
 	 */
-	public function next(\Closure $step):Monad{
+	public function next(\Closure $step):static{
 
 		if($this->params_assoc)
 			$this->withAssocParams($step);

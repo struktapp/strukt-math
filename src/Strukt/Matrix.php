@@ -20,17 +20,17 @@ class Matrix{
 	/**
 	 * @param array $arr
 	 * 
-	 * @return Matrix
+	 * @return static
 	 */
-	public static function create(array $arr):Matrix{
+	public static function create(array $arr):static{
 
 		return new self($arr);
 	}
 
 	/**
-	 * @return Matrix
+	 * @return static
 	 */
-	public function transpose():Matrix{
+	public function transpose():static{
 
 		$b = $this->arr;
 
@@ -44,9 +44,9 @@ class Matrix{
 	/**
 	 * @param Matrix $b
 	 * 
-	 * @return Matrix
+	 * @return static
 	 */
-	public function multiply(Matrix $b):Matrix{
+	public function multiply(Matrix $b):static{
 
 		if(count(reset($this->arr))!=count(array_column($b->yield(), 0)))
 			throw new \Exception("Matrices dimensions incompatible!");
@@ -80,9 +80,9 @@ class Matrix{
 	 * @param string $dimensions
 	 * @param integer $sequence
 	 * 
-	 * @return Matrix
+	 * @return static
 	 */
-	public static function random(string $dimensions = "3x3", int $sequence = 10):Matrix{
+	public static function random(string $dimensions = "3x3", int $sequence = 10):static{
 
 		if(!preg_match("/[0-9]+x[0-9]+/", $dimensions))
 			throw new \Exception("Invalid matrix dimensions!");

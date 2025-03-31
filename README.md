@@ -72,6 +72,11 @@ array(
 
 $params = array("c"=>12, "m"=>3, "x"=>2)
 
+// $y = monos($params)
+//         ->next(fn($m, $x)=>$m * $x)
+//         ->next(fn($mx, $c)=>$mx + $c)
+//         ->next(fn($r)=>$r);
+
 $y = monos($params)->next(fn($m, $x)=>$m * $x)->next(fn($mx, $c)=>$mx + $c)->next(fn($r)=>$r);
 
 echo $y->yield();

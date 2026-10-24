@@ -1,6 +1,6 @@
 # Strukt Math
 
-Immutable numeric and matrix primitives. This is the `strukt3/math` API plus a set of
+Immutable numeric and matrix primitives. This is the `strukt4/math` API plus a set of
 additive conveniences; every pre-existing behaviour is unchanged, so it is a drop in
 replacement.
 
@@ -285,7 +285,7 @@ Monad::of(10)->bind(static fn (int $v) => $f($v)->bind($g)->bind($h))->join();  
 `Monad` deliberately models sequencing only. It has no notion of failure, so use `bind`
 with a closure that throws, or return an `Either` from a base package for that.
 
-## Compatibility with strukt3/math
+## Backwards compatibility with the previous `math` package
 
 `Range`, `Counter`, `helpers.php`, and every pre-existing `Number` and `Matrix` method
 behave exactly as before. The new methods are purely additive, with two deliberate
